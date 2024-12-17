@@ -1,6 +1,11 @@
 <script>
-	import Card from "$lib/components/Card.svelte";
-
+	import Card from '$lib/components/Card.svelte';
+	let { data } = $props();
+	const { employees } = data;
 </script>
 
-<Card image="https://placehold.co/100x100" name="Joy Dey"></Card>
+<div class="flex flex-wrap">
+	{#each employees as employee}
+		<Card image="https://placehold.co/100x100" name={employee.name} dateOfBirth={employee.dateOfBirth}></Card>
+	{/each}
+</div>
